@@ -78,6 +78,13 @@ defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 echo "✔ Enable AirDrop over Ethernet and on Unsupported Macs"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
+# Xcode command line tools
+echo "✔ Installing Xcode command line tools"
+read -n 1 -s -p "Press any key to continue";
+echo ""
+xcode-select --install
+read -n 1 -s -p "Press any key to continue";
+
 # Git settings
 echo "✔ Configuring Git user settings"
 read -r -p "Full name: " username
@@ -95,12 +102,6 @@ echo "IdentityFile ~/.ssh/%r@%h" >> ~/.ssh/config
 chmod 600 ~/.ssh/config
 
 ## Software
-# Xcode command line tools
-echo "✔ Installing Xcode command line tools"
-read -n 1 -s -p "Press any key to continue";
-echo ""
-xcode-select --install
-
 # Homebrew
 echo "✔ Installing Homebrew"
 read -n 1 -s -p "Press any key to continue";
