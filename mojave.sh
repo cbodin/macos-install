@@ -92,7 +92,7 @@ read -r -p "Email: " useremail
 git config --replace-all --global user.name "$username"
 git config --replace-all --global user.email "$useremail"
 echo "✔ Configuring Git to use KeyChain for credentials"
-git config --global credential.helper osxkeychain
+git config --replace-all --global credential.helper osxkeychain
 
 # SSH config
 echo "✔ Configuring SSH to search for private keys in the format '~/.ssh/[remoteuser]@[remotehost]'"
