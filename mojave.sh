@@ -95,10 +95,10 @@ echo "✔ Configuring Git to use KeyChain for credentials"
 git config --replace-all --global credential.helper osxkeychain
 
 # SSH config
-echo "✔ Configuring SSH to search for private keys in the format '~/.ssh/[remoteuser]@[remotehost]'"
+echo "✔ Configuring SSH to search for private keys in the format '~/.ssh/[remoteuser]@[remotehost]' and store github ssh pass in keychain"
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
-echo "IdentityFile ~/.ssh/%r@%h" >> ~/.ssh/config
+echo -e "IdentityFile ~/.ssh/%r@%h\n\nHost github.com\n    UseKeychain yes\n    AddKeysToAgent yes" > ~/.ssh/config
 chmod 600 ~/.ssh/config
 
 ## Software
